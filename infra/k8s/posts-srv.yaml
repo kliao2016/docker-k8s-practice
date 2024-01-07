@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-srv
+spec:
+  type: NodePort
+  selector: # Indicate which pod to expose
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4000 # Expose port 4000 on the NodePort Service
+      targetPort: 4000 # Send traffic to port 4000 on the pod
